@@ -1,0 +1,14 @@
+{
+  "name": "grunt-convert-plato-tsv",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "author": "Masayoshi Yamashita <ymstmsys@gmail.com>",
+  "main": "convert-plato-tsv.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ymstmsys/grunt-convert-plato-tsv.git"
+  }
+}
