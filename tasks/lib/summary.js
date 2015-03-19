@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-module.exports.convert = function(platoDir, header, summaryFile) {
+module.exports.convert = function(platoDir, header, newline, summaryFile) {
   // Header
   var summaryHeader = [];
   summaryHeader.push(header.module);
@@ -17,7 +17,7 @@ module.exports.convert = function(platoDir, header, summaryFile) {
   summaryHeader.push(header.halsteadEffort);
   summaryHeader.push(header.halsteadBugs);
 
-  fs.writeFileSync(summaryFile, summaryHeader.join('\t') + '\n');
+  fs.writeFileSync(summaryFile, summaryHeader.join('\t') + newline);
 
   // Report
   var summaryJson = fs.readFileSync(path.join(platoDir, 'report.json'), {
@@ -42,7 +42,7 @@ module.exports.convert = function(platoDir, header, summaryFile) {
     value.push(report.complexity.aggregate.halstead.effort);
     value.push(report.complexity.aggregate.halstead.bugs);
 
-    fs.appendFileSync(summaryFile, value.join('\t') + '\n');
+    fs.appendFileSync(summaryFile, value.join('\t') + newline);
 
     modules.push(report.complexity.module);
   });

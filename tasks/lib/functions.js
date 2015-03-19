@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-module.exports.convert = function(platoDir, header, modules, functionsFile) {
+module.exports.convert = function(platoDir, header, newline, modules, functionsFile) {
   // Header
   var functionsHeader = [];
   functionsHeader.push(header.module);
@@ -19,7 +19,7 @@ module.exports.convert = function(platoDir, header, modules, functionsFile) {
   functionsHeader.push(header.halsteadEffort);
   functionsHeader.push(header.halsteadBugs);
 
-  fs.writeFileSync(functionsFile, functionsHeader.join('\t') + '\n');
+  fs.writeFileSync(functionsFile, functionsHeader.join('\t') + newline);
 
   // Reports
   var fileDirs = fs.readdirSync(path.join(platoDir, 'files'));
@@ -53,7 +53,7 @@ module.exports.convert = function(platoDir, header, modules, functionsFile) {
       value.push(f.halstead.effort);
       value.push(f.halstead.bugs);
 
-      fs.appendFileSync(functionsFile, value.join('\t') + '\n');
+      fs.appendFileSync(functionsFile, value.join('\t') + newline);
     });
   });
 };

@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     var options = this.options();
     var plato = options.plato;
     var output = options.output;
+    var newline = options.newline;
     var locale = options.locale;
 
     // Check plato directory
@@ -23,6 +24,11 @@ module.exports = function(grunt) {
     // Create output directory
     if (!fs.existsSync(output)) {
       fs.mkdirSync(output);
+    }
+
+    // Prepare Options
+    if (!newline) {
+      newline = require('os').EOL;
     }
 
     // Header
@@ -42,10 +48,10 @@ module.exports = function(grunt) {
 
     // Summary
     var summaryFile = path.join(output, 'summary.tsv');
-    var modules = summary.convert(plato, header, summaryFile);
+    var modules = summary.convert(plato, header, newline, summaryFile);
 
     // Functions
     var functionsFile = path.join(output, 'functions.tsv');
-    functions.convert(plato, header, modules, functionsFile);
+    functions.convert(plato, header, newline, modules, functionsFile);
   });
 };

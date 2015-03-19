@@ -51,6 +51,13 @@ Default: undefined (Must be set)
 
 TSV report directory.
 
+### newline
+
+Type: String  
+Default: depend on operating system
+
+NewLine character. For example: '\n', '\r', '\r\n'
+
 
 ## Output
 
