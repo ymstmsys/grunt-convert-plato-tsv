@@ -53,7 +53,7 @@ TSV report directory.
 
 ### ext
 
-Type: String
+Type: String  
 Default: 'tsv'
 
 Extention of TSV report file.
