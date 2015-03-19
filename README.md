@@ -58,6 +58,46 @@ Default: depend on operating system
 
 NewLine character. For example: '\n', '\r', '\r\n'
 
+### locale
+
+Type: String  
+Default: 'en'
+
+Locale of TSV header line.
+Support the following locale.
+
+* en (English) (default)
+* ja (Japanese)
+
+### header
+
+Type: Object  
+Default: undefined
+
+Set any header names.
+This option is prior to locale option.
+
+For example:
+```
+header: {
+  module : 'Module',
+  name : 'Name',
+  line : 'Line',
+  maintainability : 'Maintainability',
+  slocPhysical : 'Physical SLOC',
+  slocLogical : 'Logical SLOC',
+  parameterCount : 'Parameter Count',
+  cyclomaticComplexity : 'Cyclomatic Complexity',
+  cyclomaticDensity : 'Cyclomatic Density',
+  halsteadLength : 'Halstead Length',
+  halsteadVocabulary : 'Halstead Vocabulary',
+  halsteadDifficulty : 'Halstead Difficulty',
+  halsteadVolume : 'Halstead Volume',
+  halsteadEffort : 'Halstead Effort',
+  halsteadBugs : 'Halstead Bugs'
+}
+```
+
 
 ## Output
 

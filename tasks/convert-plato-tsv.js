@@ -10,6 +10,7 @@ module.exports = function(grunt) {
     var output = options.output;
     var newline = options.newline;
     var locale = options.locale;
+    var headerOptions = options.header;
 
     // Check plato directory
     if (!plato) {
@@ -44,6 +45,13 @@ module.exports = function(grunt) {
     }
     if (!header) {
       header = require('./header/en');
+    }
+    if (headerOptions) {
+      for ( var attr in headerOptions) {
+        if (headerOptions.hasOwnProperty(attr)) {
+          header[attr] = headerOptions[attr];
+        }
+      }
     }
 
     // Summary
