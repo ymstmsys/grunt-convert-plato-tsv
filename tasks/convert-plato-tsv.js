@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     var options = this.options();
     var plato = options.plato;
     var output = options.output;
+    var ext = options.ext;
     var newline = options.newline;
     var locale = options.locale;
     var headerOptions = options.header;
@@ -28,6 +29,9 @@ module.exports = function(grunt) {
     }
 
     // Prepare Options
+    if (!ext) {
+      ext = 'tsv';
+    }
     if (!newline) {
       newline = require('os').EOL;
     }
@@ -55,11 +59,11 @@ module.exports = function(grunt) {
     }
 
     // Summary
-    var summaryFile = path.join(output, 'summary.tsv');
+    var summaryFile = path.join(output, 'summary.' + ext);
     var modules = summary.convert(plato, header, newline, summaryFile);
 
     // Functions
-    var functionsFile = path.join(output, 'functions.tsv');
+    var functionsFile = path.join(output, 'functions.' + ext);
     functions.convert(plato, header, newline, modules, functionsFile);
   });
 };

@@ -51,6 +51,13 @@ Default: undefined (Must be set)
 
 TSV report directory.
 
+### ext
+
+Type: String
+Default: 'tsv'
+
+Extention of TSV report file.
+
 ### newline
 
 Type: String  
